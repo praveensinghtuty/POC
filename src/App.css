@@ -1,0 +1,49 @@
+.App {
+  text-align: center;
+}
+
+
+.App-header {
+  /* min-height: 100vh; */
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: left;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+.open
+{
+  display: block;
+}
+.closed {
+  display: none;
+}
+.help-button {
+  background-color: #0A1A5E;
+  border: none;
+  color: white;
+  padding: 4px; 
+  text-align: center;
+  text-decoration: double;
+  font-size: 30px;
+  margin: 4px;
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  cursor: pointer;
+}
+
+.chat-bot
+{
+  border-radius: 5px;
+  border: 1px solid#CCC;
+}
+.react-chatbot-kit-chat-input
+{
+  color: black;
+}
