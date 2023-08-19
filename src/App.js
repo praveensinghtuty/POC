@@ -12,11 +12,9 @@ import MessageParser from "./MessageParser";
 import config from "./config";
 
 function App() {
-  function openChat(event) {
-    //event.target.classList.remove("open");
-    //event.target.classList.add("closed");
-    document.querySelector(".chat-bot").classList.remove("closed");
-    document.querySelector(".chat-bot").classList.add("open");
+  function closeChat(event) {
+    document.querySelector(".App-header").classList.remove("open");
+    document.querySelector(".App-header").classList.add("closed");
   }
   return (
     <div className="App">
@@ -26,11 +24,11 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
       <Footer />
-      <header className="App-header">
-        {/* <div className = "help-button" onClick={openChat}>
-          ?
-        </div> */}
-        <div className="chat-bot closed">
+      <header className="App-header closed">
+        <div className="close-button" onClick={closeChat}>
+          X
+        </div>
+        <div className="chat-bot">
           <Chatbot
             config={config}
             actionProvider={ActionProvider}

@@ -1,8 +1,11 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-
 function Home() {
+  function openChat(event) {
+    document.querySelector(".App-header").classList.remove("closed");
+    document.querySelector(".App-header").classList.add("open");
+  }
   return (
     <div>
       <section>
@@ -73,7 +76,7 @@ function Home() {
                   </small>
                   <strong class="text-primary">$11779.00</strong>
                 </p>
-                <div class="negotiate-button" onclick="openChat()">
+                <div className="negotiate-button" onClick={openChat}>
                   Negotiate
                 </div>
 

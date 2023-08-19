@@ -2,15 +2,10 @@
   text-align: center;
 }
 
-
 .App-header {
-  /* min-height: 100vh; */
-  display: flex;
-  flex-direction: column-reverse;
-  align-items: left;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  position: fixed;
+  bottom: 0px;
+  right: 0px;
 }
 
 .App-link {
@@ -19,34 +14,29 @@
 .dashboard-home {
   padding: 50px 0px;
 }
-.open
-{
+.open {
   display: block;
 }
 .closed {
   display: none;
 }
-.help-button {
-  background-color: #0A1A5E;
-  border: none;
-  color: white;
-  padding: 4px; 
-  text-align: center;
+.close-button {
+  position: absolute;
+  color: #535151;
   text-decoration: double;
-  font-size: 30px;
-  margin: 4px;
-  width: 50px;
-  height: 50px;
-  border-radius: 100%;
+  font-size: 15px;
   cursor: pointer;
+  right: 10px;
+  top: 10px;
+  width: 15px;
+  z-index: 1;
+  font-weight: bolder;
 }
 
-.chat-bot
-{
+.chat-bot {
   border-radius: 5px;
   border: 1px solid#CCC;
 }
-.react-chatbot-kit-chat-input
-{
+.react-chatbot-kit-chat-input {
   color: black;
 }
