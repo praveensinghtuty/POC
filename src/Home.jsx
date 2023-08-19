@@ -14,7 +14,7 @@ function Home() {
             <div class="col-md-6 col-xs-12">
               <div>
                 <img
-                  src="images/product-1-720x480.jpg"
+                  src="images/product-1.jpg"
                   alt=""
                   class="img-responsive wc-image"
                 />
@@ -26,7 +26,7 @@ function Home() {
                 <div class="col-sm-4 col-xs-6">
                   <div>
                     <img
-                      src="images/product-1-720x480.jpg"
+                      src="images/product-1.jpg"
                       alt=""
                       class="img-responsive"
                     />
@@ -38,7 +38,7 @@ function Home() {
                 <div class="col-sm-4 col-xs-6">
                   <div>
                     <img
-                      src="images/product-2-720x480.jpg"
+                      src="images/product-2.jpg"
                       alt=""
                       class="img-responsive"
                     />
@@ -50,7 +50,7 @@ function Home() {
                 <div class="col-sm-4 col-xs-6">
                   <div>
                     <img
-                      src="images/product-3-720x480.jpg"
+                      src="images/product-3.jpg"
                       alt=""
                       class="img-responsive"
                     />

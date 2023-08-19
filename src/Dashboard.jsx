@@ -1,15 +1,22 @@
 import React, { useEffect, useState } from "react";
 const Dashboard = () => {
   const url = "http://localhost:8080/api/cars?soldOut=false";
+  const getImage = () => {
+    return "/images/product-" + Math.ceil(Math.random() * 6) + ".jpg";
+  };
+  const getKm = () => {
+    return Math.ceil(Math.random() * 50000 + 10000) + "Kms";
+  };
   const [data, setData] = useState([]);
+  const [vehicle, setVehicle] = useState({});
   const fetchInfo = () => {
-    return fetch(url).then((res) => console.log(res));
-    //.then((d) => console.log(d));
+    return fetch(url)
+      .then((res) => res.json())
+      .then((d) => setData(d));
   };
 
   useEffect(() => {
     fetchInfo();
-    console.log(data);
   }, []);
 
   return (
@@ -30,183 +37,53 @@ const Dashboard = () => {
         <div class="tab-content ">
           <div class="tab-pane active" id="1">
             <div className="cars-list">
-              <div className="single-card">
-                <div className="car-section">
-                  <div className="image-col">
-                    <img src="/images/product-5-720x480.jpg" alt="Img" />
+              {data?.map((obj, index) => {
+                return (
+                  <div className="single-card">
+                    <div className="car-section">
+                      <div className="image-col">
+                        <img src={getImage()} alt="Img" />
+                      </div>
+                      <div className="car-details-col">
+                        <h2>{obj.make + " " + obj.model}</h2>
+                        <h3>{obj.year}</h3>
+                        <ul>
+                          <li>{getKm()}</li>
+                        </ul>
+                        {obj.soldOut && (
+                          <>
+                            <ul>
+                              <li>Accepted Bid Amount:</li>
+                              <li>{obj.acceptedBidAmount}</li>
+                            </ul>
+                            <ul>
+                              <li>Buyer:</li>
+                              <li>{obj.buyer}</li>
+                            </ul>
+                          </>
+                        )}
+                      </div>
+                    </div>
+                    <div className="bid-section">
+                      <div className="left-col">
+                        <h3>Price</h3>
+                        <h2>
+                          <strong>{"$" + obj.minBidAmount}</strong>
+                        </h2>
+                      </div>
+                      <div className="button-col">
+                        <button
+                          data-toggle="modal"
+                          data-target="#exampleModal"
+                          onClick={() => setVehicle(obj)}
+                        >
+                          Bid
+                        </button>
+                      </div>
+                    </div>
                   </div>
-                  <div className="car-details-col">
-                    <h2>Porsche 911</h2>
-                    <h3>2016</h3>
-                    <ul>
-                      <li>33,637 km</li>
-                      <li>| Car</li>
-                      <li>| 2dr Cpe Carrera 4</li>
-                    </ul>
-                  </div>
-                </div>
-                <div className="bid-section">
-                  <div className="left-col">
-                    <h3>Price</h3>
-                    <h2>
-                      <strong>$13000</strong>
-                    </h2>
-                  </div>
-                  <div className="button-col">
-                    <button data-toggle="modal" data-target="#exampleModal">
-                      Bid
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <div className="single-card">
-                <div className="car-section">
-                  <div className="image-col">
-                    <img src="/images/product-1-720x480.jpg" alt="Img" />
-                  </div>
-                  <div className="car-details-col">
-                    <h2>Hyndai Elantra </h2>
-                    <h3>2015</h3>
-                    <ul>
-                      <li>33,637 km</li>
-                      <li>| Car</li>
-                      <li>| 2dr Cpe Carrera 4</li>
-                    </ul>
-                  </div>
-                </div>
-                <div className="bid-section">
-                  <div className="left-col">
-                    <h3>Price</h3>
-                    <h2>
-                      <strong>$14000</strong>
-                    </h2>
-                  </div>
-                  <div className="button-col">
-                    <button data-toggle="modal" data-target="#exampleModal">
-                      Bid
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <div className="single-card">
-                <div className="car-section">
-                  <div className="image-col">
-                    <img src="/images/product-6-720x480.jpg" alt="Img" />
-                  </div>
-                  <div className="car-details-col">
-                    <h2>Hyndai Verna</h2>
-                    <h3>2014</h3>
-                    <ul>
-                      <li>33,637 km</li>
-                      <li>| Car</li>
-                      <li>| 2dr Cpe Carrera 4</li>
-                    </ul>
-                  </div>
-                </div>
-                <div className="bid-section">
-                  <div className="left-col">
-                    <h3>Price</h3>
-                    <h2>
-                      <strong>$15000</strong>
-                    </h2>
-                  </div>
-                  <div className="button-col">
-                    <button data-toggle="modal" data-target="#exampleModal">
-                      Bid
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <div className="single-card">
-                <div className="car-section">
-                  <div className="image-col">
-                    <img src="/images/product-2-720x480.jpg" alt="Img" />
-                  </div>
-                  <div className="car-details-col">
-                    <h2>Hyndai Creta</h2>
-                    <h3>2014</h3>
-                    <ul>
-                      <li>33,637 km</li>
-                      <li>| Car</li>
-                      <li>| 2dr Cpe Carrera 4</li>
-                    </ul>
-                  </div>
-                </div>
-                <div className="bid-section">
-                  <div className="left-col">
-                    <h3>Price</h3>
-                    <h2>
-                      <strong>$16000</strong>
-                    </h2>
-                  </div>
-                  <div className="button-col">
-                    <button data-toggle="modal" data-target="#exampleModal">
-                      Bid
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <div className="single-card">
-                <div className="car-section">
-                  <div className="image-col">
-                    <img src="/images/product-3-720x480.jpg" alt="Img" />
-                  </div>
-                  <div className="car-details-col">
-                    <h2>Hyndai Venu</h2>
-                    <h3>2013</h3>
-                    <ul>
-                      <li>33,637 km</li>
-                      <li>| Car</li>
-                      <li>| 2dr Cpe Carrera 4</li>
-                    </ul>
-                  </div>
-                </div>
-                <div className="bid-section">
-                  <div className="left-col">
-                    <h3>Price</h3>
-                    <h2>
-                      <strong>$17000</strong>
-                    </h2>
-                  </div>
-                  <div className="button-col">
-                    <button data-toggle="modal" data-target="#exampleModal">
-                      Bid
-                    </button>
-                  </div>
-                </div>
-              </div>
-              {/* {data?.map((obj, index) => {
-                return <div>{obj?.make}</div>;
-              })} */}
-              <div className="single-card">
-                <div className="car-section">
-                  <div className="image-col">
-                    <img src="/images/product-4-720x480.jpg" alt="Img" />
-                  </div>
-                  <div className="car-details-col">
-                    <h2>Hyndai Exter</h2>
-                    <h3>2013</h3>
-                    <ul>
-                      <li>33,637 km</li>
-                      <li>| Car</li>
-                      <li>| 2dr Cpe Carrera 4</li>
-                    </ul>
-                  </div>
-                </div>
-                <div className="bid-section">
-                  <div className="left-col">
-                    <h3>Price</h3>
-                    <h2>
-                      <strong>$18000</strong>
-                    </h2>
-                  </div>
-                  <div className="button-col">
-                    <button data-toggle="modal" data-target="#exampleModal">
-                      Bid
-                    </button>
-                  </div>
-                </div>
-              </div>
+                );
+              })}
             </div>
           </div>
           <div class="tab-pane" id="2">
@@ -277,7 +154,7 @@ const Dashboard = () => {
             <div class="modal-content">
               <div class="modal-header">
                 <h2 class="modal-title" id="exampleModalLabel">
-                  Bid for Porsche 911
+                  Bid for {vehicle.make + " " + vehicle.model}
                 </h2>
                 <button
                   type="button"
@@ -299,7 +176,7 @@ const Dashboard = () => {
                       class="form-control"
                       id="car-id"
                       name="car_id"
-                      value={""}
+                      value={vehicle.id}
                     />
                   </div>
                   <div class="form-group">

@@ -8,18 +8,19 @@ class ActionProvider {
     const greetingMessage = this.createChatBotMessage(
       "Sorry not able to connect right now"
     );
-    try {
-      const response = await fetch("http://localhost:8080/chat", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: { prompt: message },
-      });
-      this.updateChatbotState(response?.json()?.answer);
-    } catch (error) {
-      this.updateChatbotState(greetingMessage);
-    }
+
+    fetch("http://localhost:8080/api/chat", {
+      method: "POST",
+      body: JSON.stringify({ prompt: message, buyerId: 0 }),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    })
+      .then((res) => res.json())
+      .then((d) =>
+        this.updateChatbotState(this.createChatBotMessage(d.answer || d.error))
+      )
+      .catch((error) => this.updateChatbotState(greetingMessage));
   }
 
   updateChatbotState(message) {
