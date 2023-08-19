@@ -1,5 +1,17 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 const Dashboard = () => {
+  const url = "http://localhost:8080/api/cars?soldOut=false";
+  const [data, setData] = useState([]);
+  const fetchInfo = () => {
+    return fetch(url).then((res) => console.log(res));
+    //.then((d) => console.log(d));
+  };
+
+  useEffect(() => {
+    fetchInfo();
+    console.log(data);
+  }, []);
+
   return (
     <div className="dashboard-home">
       <div class="container">
@@ -163,6 +175,9 @@ const Dashboard = () => {
                   </div>
                 </div>
               </div>
+              {/* {data?.map((obj, index) => {
+                return <div>{obj?.make}</div>;
+              })} */}
               <div className="single-card">
                 <div className="car-section">
                   <div className="image-col">
