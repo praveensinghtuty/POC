@@ -54,7 +54,7 @@ const Dashboard = () => {
                   </div>
                   <div className="button-col">
                     <button data-toggle="modal" data-target="#exampleModal">
-                      Negotiate
+                      Bid
                     </button>
                   </div>
                 </div>
@@ -83,7 +83,7 @@ const Dashboard = () => {
                   </div>
                   <div className="button-col">
                     <button data-toggle="modal" data-target="#exampleModal">
-                      Negotiate
+                      Bid
                     </button>
                   </div>
                 </div>
@@ -112,7 +112,7 @@ const Dashboard = () => {
                   </div>
                   <div className="button-col">
                     <button data-toggle="modal" data-target="#exampleModal">
-                      Negotiate
+                      Bid
                     </button>
                   </div>
                 </div>
@@ -141,7 +141,7 @@ const Dashboard = () => {
                   </div>
                   <div className="button-col">
                     <button data-toggle="modal" data-target="#exampleModal">
-                      Negotiate
+                      Bid
                     </button>
                   </div>
                 </div>
@@ -170,7 +170,7 @@ const Dashboard = () => {
                   </div>
                   <div className="button-col">
                     <button data-toggle="modal" data-target="#exampleModal">
-                      Negotiate
+                      Bid
                     </button>
                   </div>
                 </div>
@@ -202,7 +202,7 @@ const Dashboard = () => {
                   </div>
                   <div className="button-col">
                     <button data-toggle="modal" data-target="#exampleModal">
-                      Negotiate
+                      Bid
                     </button>
                   </div>
                 </div>
