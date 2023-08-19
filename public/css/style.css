@@ -12,14 +12,8 @@ https://templatemo.com/tm-516-known
     background: #ffffff;
     font-family: 'Nunito', sans-serif;
     overflow-x: hidden;
-    padding-top: 70px;
   }
-#root {
-  z-index : 1200;
-  position: fixed;
-  bottom:0px;
-  right:0px;
-}
+
 
   /*---------------------------------------
      TYPOGRAPHY              
@@ -40,7 +34,6 @@ https://templatemo.com/tm-516-known
   h2 {
     color: #353535;
     font-size: 2em;
-    padding-bottom: 10px;
   }
 
   h3 {
@@ -1067,3 +1060,92 @@ https://templatemo.com/tm-516-known
 
   .list { font-size: 16px; line-height: 1.6; }
   .list li { margin-bottom: 15px;  }
+  .car-details-col ul {
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+}
+.car-details-col ul li {
+  padding-right: 10px;
+  font-size:2rem;
+}
+.cars-list .single-card {
+  border: 1px solid #ccc;
+  box-shadow:0px 0px 15px rgba(0,0,0,.3);
+}
+.cars-list .car-section {
+  display: flex;
+  border-bottom:1px solid #ccc;
+  margin-bottom:20px;
+}
+.cars-list .car-section .image-col img {
+  width: 100%;
+  height: 100%;
+  max-width: 200px;
+}
+.cars-list .car-section .car-details-col {
+  text-align: left;
+}
+.cars-list .car-section .car-details-col h2 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.cars-list .car-section .car-details-col h3 {
+  margin: 0;
+  padding-bottom: 10px;
+}
+.cars-list .car-section .car-details-col {
+  text-align: left;
+  padding:25px 25px;
+}
+.cars-list .single-card .bid-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 50px 20px 50px;
+}
+.cars-list .single-card .bid-section .left-col * {
+  margin: 0;
+}
+.cars-list .single-card .bid-section .button-col button,
+.button-style {
+  background: #0F4BA0;
+  color: #fff;
+  border: none;
+  font-size: 2rem;
+  font-weight: 500;
+  padding: 5px 28px;
+  line-height: 1.9;
+  border-radius: 5px;
+}
+.tab-pane {
+  margin-top:30px
+}
+.cars-list .single-card:not(:first-child) {
+  margin-top: 40px;
+}
+.modal-body .form-group {
+  text-align: left;
+}
+.seller-form form {
+  text-align: left;
+}
+.collapse.navbar-collapse ul.nav.navbar-nav.navbar-nav-first {
+  position: relative;
+  top: 13px;
+}
+.navbar-header a.navbar-brand {
+  padding-top: 0;
+  padding-bottom: 0;
+  position: relative;
+  top: 6px;
+}
+.collapse.navbar-collapse ul.nav.navbar-nav.navbar-nav-first {
+  position: relative;
+  top: 11px;
+}
+.custom-navbar .navbar-nav.navbar-nav-first a {
+  padding-right: 15px;
+  font-size: 1.8rem;
+}
