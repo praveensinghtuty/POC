@@ -95,7 +95,7 @@ function Home() {
 
                       <br />
 
-                      <strong>Lorem ipsum dolor sit</strong>
+                      <strong>Jeep</strong>
                     </p>
                   </div>
 
@@ -105,7 +105,7 @@ function Home() {
 
                       <br />
 
-                      <strong>Lorem ipsum dolor sit</strong>
+                      <strong>Compass</strong>
                     </p>
                   </div>
 
@@ -204,7 +204,7 @@ function Home() {
           </div>
 
           <div class="row">
-            <div class="col-lg-8 col-xs-12">
+            <div>
               <div class="panel panel-default">
                 <div class="panel-heading">
                   <h4>Vehicle Description</h4>
@@ -233,54 +233,6 @@ function Home() {
                     esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
                     occaecat cupidatat non proident, sunt in culpa qui officia
                     deserunt mollit anim id est laborum.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-xs-12">
-              <div class="panel panel-default">
-                <div class="panel-heading">
-                  <h4>Contact Details</h4>
-                </div>
-
-                <div class="panel-body">
-                  <p>
-                    <span>Name</span>
-
-                    <br />
-
-                    <strong>John Smith</strong>
-                  </p>
-
-                  <p>
-                    <span>Phone</span>
-
-                    <br />
-
-                    <strong>
-                      <a href="tel:123-456-789">123-456-789</a>
-                    </strong>
-                  </p>
-
-                  <p>
-                    <span>Mobile phone</span>
-
-                    <br />
-
-                    <strong>
-                      <a href="tel:456789123">456789123</a>
-                    </strong>
-                  </p>
-
-                  <p>
-                    <span>Email</span>
-
-                    <br />
-
-                    <strong>
-                      <a href="mailto:john@carsales.com">john@carsales.com</a>
-                    </strong>
                   </p>
                 </div>
               </div>

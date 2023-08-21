@@ -20,6 +20,11 @@
 .closed {
   display: none;
 }
+
+.link {
+  color: blue;
+  text-decoration-line: underline;
+}
 .close-button {
   position: absolute;
   color: #535151;

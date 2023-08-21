@@ -121,7 +121,7 @@ const Dashboard = () => {
                         <img src={getImage()} alt="Img" />
                       </div>
                       <div className="car-details-col">
-                        <h2>{obj.make + " " + obj.model}</h2>
+                        <h2 className="link">{obj.make + " " + obj.model}</h2>
                         <h3>{obj.year}</h3>
                         <ul>
                           <li>{getKm()}</li>
@@ -142,7 +142,7 @@ const Dashboard = () => {
                     </div>
                     <div className="bid-section">
                       <div className="left-col">
-                        <h3>Price</h3>
+                        <h3>Starting Bid Amount</h3>
                         <h2>
                           <strong>{"$" + obj.minBidAmount}</strong>
                         </h2>
@@ -271,9 +271,15 @@ const Dashboard = () => {
                           </div>
                           <div className="bid-section">
                             <div className="left-col">
-                              <h3>Price</h3>
+                              <h3>Starting Bid Amount</h3>
                               <h2>
-                                <strong>$13000</strong>
+                                <strong>{data.car.minBidAmount}</strong>
+                              </h2>
+                            </div>
+                            <div className="right-col">
+                              <h3>Bid Amount</h3>
+                              <h2>
+                                <strong>{data.bidAmount}</strong>
                               </h2>
                             </div>
                           </div>
