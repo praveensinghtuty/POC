@@ -71,9 +71,7 @@ function Home() {
                 </p>
 
                 <p class="lead">
-                  <small>
-                    <del> $11999.00</del>
-                  </small>
+                  <strong> Max Bid : </strong>
                   <strong class="text-primary">$11779.00</strong>
                 </p>
                 <div className="negotiate-button" onClick={openChat}>

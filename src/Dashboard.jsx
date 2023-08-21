@@ -6,8 +6,13 @@ const Dashboard = () => {
     year: "",
     floorPrice: "",
   });
+  const [bidCount, setBidCount] = useState({
+    approved: 0,
+    pending: 0,
+    rejected: 0,
+  });
   const url = "http://localhost:8080/api/cars?soldOut=false";
-  const bidStatus = "http://localhost:8080/api/bids/1/status";
+  const bidStatus = "http://localhost:8080/api/bids/buyer/1";
   const [data, setData] = useState([]);
   const [vehicle, setVehicle] = useState({});
   const [statusBid, setStatusBid] = useState([]);
@@ -17,15 +22,37 @@ const Dashboard = () => {
   const getKm = () => {
     return Math.ceil(Math.random() * 50000 + 10000) + "Kms";
   };
+  const generateBidCount = (bids) => {
+    const tempBidCount = {
+      approved: 0,
+      pending: 0,
+      rejected: 0,
+    };
+    bids.map((bid) => {
+      console.log(bid.status.toLowerCase());
+      if (bid.status?.toLowerCase() === "pending")
+        tempBidCount.pending = tempBidCount.pending + 1;
+      else if (bid.status?.toLowerCase() === "approved")
+        tempBidCount.approved = tempBidCount.approved + 1;
+      else if (bid.status?.toLowerCase() === "rejected")
+        tempBidCount.rejected = tempBidCount.rejected + 1;
+    });
+    setBidCount(tempBidCount);
+  };
   const fetchInfo = () => {
     return fetch(url)
       .then((res) => res.json())
-      .then((d) => setData(d));
+      .then((d) => {
+        setData(d);
+      });
   };
   const fetchStatusBid = () => {
     return fetch(bidStatus)
       .then((res) => res.json())
-      .then((d) => setStatusBid(d));
+      .then((d) => {
+        setStatusBid(d);
+        generateBidCount(d);
+      });
   };
   const handleSellerBid = (e) => {
     const { name, value } = e.target;
@@ -205,13 +232,13 @@ const Dashboard = () => {
                     <ul>
                       <li status-data="all">All Bids</li>
                       <li status-data="approved">
-                        Approved Bids <span>(1)</span>
+                        Approved Bids <span>({bidCount.approved})</span>
                       </li>
                       <li status-data="pending">
-                        Pending Bids <span>(2)</span>
+                        Pending Bids <span>({bidCount.pending})</span>
                       </li>
                       <li status-data="rejected">
-                        Rejected Bids <span>(1)</span>
+                        Rejected Bids <span>({bidCount.rejected})</span>
                       </li>
                     </ul>
                   </div>
@@ -230,13 +257,13 @@ const Dashboard = () => {
                               <img src={getImage()} alt="Img" />
                             </div>
                             <div className="car-details-col">
-                              <h2>{data.make + " " + data.model}</h2>
-                              <h3>{data.year}</h3>
+                              <h2>{data.car.make + " " + data.car.model}</h2>
+                              <h3>{data.car.year}</h3>
                               <ul>
                                 <li>{getKm()}</li>
                               </ul>
-                              <h4 className="pending">
-                                Status : <span>Pending</span>
+                              <h4 className={data.status.toLowerCase()}>
+                                Status : <span>{data.status}</span>
                               </h4>
                             </div>
                           </div>
