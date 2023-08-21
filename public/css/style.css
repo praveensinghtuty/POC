@@ -131,7 +131,7 @@ a:focus {
 .react-chatbot-kit-chat-bot-message,
 .react-chatbot-kit-user-chat-message,
 .react-chatbot-kit-chat-header {
-  font-size: 1.5rem !important;
+  font-size: 15px !important;
 }
 
 .entry-form {

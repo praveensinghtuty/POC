@@ -22,8 +22,7 @@ function Header() {
 
           <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-nav-first">
-              <Link to="/">Home</Link>
-              <Link to="/dashboard">Dashboard</Link>
+              <Link to="/">Dashboard</Link>
             </ul>
           </div>
         </div>

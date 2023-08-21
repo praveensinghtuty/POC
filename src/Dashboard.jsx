@@ -39,18 +39,18 @@ const Dashboard = () => {
     // document.querySelector(".App-header").classList.remove("closed");
     // document.querySelector(".App-header").classList.add("open");
   };
-  const listForBidding = () => {
-    const formData = new FormData(document.querySelector("#sellerForm"));
-    if (formData.model) {
-      fetch("http://localhost:8080/api/cars", {
-        method: "POST",
-        body: JSON.stringify(formData),
-        headers: {
-          "Content-type": "application/json; charset=UTF-8",
-        },
-      });
-    }
-  };
+  // const listForBidding = () => {
+  //   const formData = new FormData(document.querySelector("#sellerForm"));
+  //   if (formData.model) {
+  //     fetch("http://localhost:8080/api/cars", {
+  //       method: "POST",
+  //       body: JSON.stringify(formData),
+  //       headers: {
+  //         "Content-type": "application/json; charset=UTF-8",
+  //       },
+  //     });
+  //   }
+  // };
   const getImage = () => {
     return "/images/product-" + Math.ceil(Math.random() * 6) + ".jpg";
   };
@@ -65,7 +65,6 @@ const Dashboard = () => {
       total: bids.length,
     };
     bids.map((bid) => {
-      console.log(bid.status.toLowerCase());
       if (bid.status?.toLowerCase() === "pending")
         tempBidCount.pending = tempBidCount.pending + 1;
       else if (bid.status?.toLowerCase() === "approved")
@@ -106,6 +105,16 @@ const Dashboard = () => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (sellerInput.model) {
+      console.log("in");
+      fetch("http://localhost:8080/api/cars", {
+        method: "POST",
+        body: JSON.stringify(sellerInput),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+      });
+    }
     if (
       sellerInput?.minBidAmount !== "" ||
       sellerInput?.make !== "" ||
@@ -113,7 +122,6 @@ const Dashboard = () => {
       sellerInput?.year !== "" ||
       sellerInput?.terms !== ""
     ) {
-      console.log(sellerInput);
       setSellerInput({
         make: "",
         model: "",
@@ -283,7 +291,7 @@ const Dashboard = () => {
                     onChange={handleSellerBid}
                   ></textarea>
                 </div>
-                <button className="button-style" onClick={listForBidding}>
+                <button className="button-style" type="submit">
                   List for Bidding
                 </button>
               </form>
