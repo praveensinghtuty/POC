@@ -51,6 +51,28 @@
         document.querySelector(".chat-bot").classList.remove("closed");
         document.querySelector(".chat-bot").classList.add("open");
       }
+      setTimeout(() => {
+        $(".status-bids .bid-status ul li").on("click", function () {
+          $(".status-bids .bid-status ul li").removeClass("active");
+          $(this).addClass("active");
+          let data = $(this).attr("status-data");
+          $(".status-bids .col-md-8 .cars-list .single-card").each(function () {
+            let status = $(this).attr("data-status");
+            if (data == status) {
+              $(this).fadeIn();
+            } else if (data == "all") {
+              $(this).fadeIn();
+            } else {
+              $(this).fadeOut();
+            }
+          });
+        });
+        $(".status-bids .bid-status ul li#all").on("click", function () {
+          $(".status-bids .col-md-8 .cars-list .single-card").each(function () {
+            $(this).addClass("all-show");
+          });
+        });
+      }, 2000);
     </script>
   </body>
 </html>

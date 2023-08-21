@@ -1149,3 +1149,48 @@ https://templatemo.com/tm-516-known
   padding-right: 15px;
   font-size: 1.8rem;
 }
+h2.total-bids {
+  text-align: left;
+  padding-bottom: 20px;
+}
+.status-bids .bid-status ul {
+  list-style-type: none;
+  padding-left: 0;
+  text-align: left;
+  background: #fff;
+  box-shadow: 0px 0px 20px rgba(0,0,0,.2);
+  padding:10px 10px;
+}
+.status-bids .bid-status ul li {
+  font-size: 2rem;
+  background: #eee;
+  padding: 10px 10px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.status-bids .bid-status ul li:not(:last-child) {
+  margin-bottom: 15px;
+}
+.status-bids .bid-status ul li.active {
+  background: #0F4BA0;
+  color: #fff;
+}
+.status-bids .car-details-col h4 span {
+  color: #fff;
+  padding: 7px 7px;
+  border-radius: 5px;
+}
+.status-bids .car-details-col h4.approved span {
+  background: #008000;
+}
+.status-bids .car-details-col h4.rejected span {
+  background: #8b0000;
+}
+.status-bids .car-details-col h4.pending span {
+  background: #ffc000;
+  color: #000;
+}
+.status-bids .col-md-8 .single-card {
+  margin-top: 0;
+  margin-bottom: 40px;
+}
