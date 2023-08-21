@@ -11,7 +11,11 @@ class ActionProvider {
 
     fetch("http://localhost:8080/api/chat", {
       method: "POST",
-      body: JSON.stringify({ prompt: message, buyerId: "1" }),
+      body: JSON.stringify({
+        prompt: message,
+        carId: window.carId,
+        chatId: window.chatId,
+      }),
       headers: {
         "Content-type": "application/json; charset=UTF-8",
       },

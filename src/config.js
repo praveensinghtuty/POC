@@ -4,7 +4,7 @@ const config = {
   botName: "openlaneBot",
   initialMessages: [
     createChatBotMessage(
-      `Hello, you are looking at Jeep Compass for the price  of $11779. How can I help?`
+      `Hello, you are looking at ${window.carName}. How can I help?`
     ),
   ],
   customStyles: {

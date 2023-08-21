@@ -1,10 +1,17 @@
 import React, { useEffect, useState } from "react";
+import Chatbot from "react-chatbot-kit";
+import "react-chatbot-kit/build/main.css";
+import "./App.css";
+import ActionProvider from "./ActionProvider";
+import MessageParser from "./MessageParser";
+import config from "./config";
 const Dashboard = () => {
   const [sellerInput, setSellerInput] = useState({
     make: "",
     model: "",
     year: "",
-    floorPrice: "",
+    minBidAmount: "",
+    terms: "",
   });
   const [bidCount, setBidCount] = useState({
     approved: 0,
@@ -17,6 +24,33 @@ const Dashboard = () => {
   const [data, setData] = useState([]);
   const [vehicle, setVehicle] = useState({});
   const [statusBid, setStatusBid] = useState([]);
+  const [chatId, setChatId] = useState([]);
+  const [createChat, setCreateChat] = useState(false);
+  const openChatWithData = (obj) => {
+    let randomId = (Math.random() * 1000).toFixed(0);
+    while (chatId.indexOf(randomId) !== -1) {
+      randomId = (Math.random() * 1000).toFixed(0);
+    }
+    window.chatId = randomId;
+    setCreateChat(true);
+    setChatId([...chatId, randomId]);
+    window.carId = obj.id;
+    window.carName = obj.make + " " + obj.model;
+    // document.querySelector(".App-header").classList.remove("closed");
+    // document.querySelector(".App-header").classList.add("open");
+  };
+  const listForBidding = () => {
+    const formData = new FormData(document.querySelector("#sellerForm"));
+    if (formData.model) {
+      fetch("http://localhost:8080/api/cars", {
+        method: "POST",
+        body: JSON.stringify(formData),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+      });
+    }
+  };
   const getImage = () => {
     return "/images/product-" + Math.ceil(Math.random() * 6) + ".jpg";
   };
@@ -41,6 +75,11 @@ const Dashboard = () => {
     });
     setBidCount(tempBidCount);
   };
+  function closeChat(event) {
+    setCreateChat(false);
+    // document.querySelector(".App-header").classList.remove("open");
+    // document.querySelector(".App-header").classList.add("closed");
+  }
   const fetchInfo = () => {
     return fetch(url)
       .then((res) => res.json())
@@ -68,17 +107,19 @@ const Dashboard = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (
-      sellerInput?.floorPrice !== "" ||
+      sellerInput?.minBidAmount !== "" ||
       sellerInput?.make !== "" ||
       sellerInput?.model !== "" ||
-      sellerInput?.year !== ""
+      sellerInput?.year !== "" ||
+      sellerInput?.terms !== ""
     ) {
       console.log(sellerInput);
       setSellerInput({
         make: "",
         model: "",
         year: "",
-        floorPrice: "",
+        minBidAmount: "",
+        terms: "",
       });
     } else {
       alert("Please fill all the details");
@@ -103,13 +144,28 @@ const Dashboard = () => {
               Sellers
             </a>
           </li>
-          <li>
+          {/* <li>
             <a href="#3" data-toggle="tab">
               Buyers Data
             </a>
-          </li>
+          </li> */}
         </ul>
         <div class="tab-content ">
+          {createChat && (
+            <header className="App-header">
+              <div className="close-button" onClick={closeChat}>
+                X
+              </div>
+              <div className="chat-bot">
+                <Chatbot
+                  config={config}
+                  actionProvider={ActionProvider}
+                  headerText="Chat with Openlane Bot"
+                  messageParser={MessageParser}
+                />
+              </div>
+            </header>
+          )}
           {/******* Car Lists Tab *********/}
           <div class="tab-pane active" id="1">
             <div className="cars-list">
@@ -148,12 +204,8 @@ const Dashboard = () => {
                         </h2>
                       </div>
                       <div className="button-col">
-                        <button
-                          data-toggle="modal"
-                          data-target="#exampleModal"
-                          onClick={() => setVehicle(obj)}
-                        >
-                          Bid
+                        <button onClick={() => openChatWithData(obj)}>
+                          Negotiate
                         </button>
                       </div>
                     </div>
@@ -165,7 +217,7 @@ const Dashboard = () => {
           {/******* Seller Tab *********/}
           <div class="tab-pane" id="2">
             <div className="seller-form">
-              <form onSubmit={handleSubmit}>
+              <form id="sellerForm" onSubmit={handleSubmit}>
                 <div class="form-group">
                   <label for="recipient-name" class="col-form-label">
                     Make
@@ -213,12 +265,27 @@ const Dashboard = () => {
                     type="text"
                     class="form-control"
                     id="floorPrice"
-                    name="floorPrice"
-                    value={sellerInput.floorPrice}
+                    name="minBidAmount"
+                    value={sellerInput.minBidAmount}
                     onChange={handleSellerBid}
                   />
                 </div>
-                <button className="button-style">List for Bidding</button>
+                <div class="form-group">
+                  <label for="recipient-name" class="col-form-label">
+                    Terms
+                  </label>
+                  <textarea
+                    type="text"
+                    class="form-control"
+                    id="terms"
+                    name="terms"
+                    value={sellerInput.terms}
+                    onChange={handleSellerBid}
+                  ></textarea>
+                </div>
+                <button className="button-style" onClick={listForBidding}>
+                  List for Bidding
+                </button>
               </form>
             </div>
           </div>

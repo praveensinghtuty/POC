@@ -128,6 +128,11 @@ a:focus {
   width: 100%;
   height: 100%;
 }
+.react-chatbot-kit-chat-bot-message,
+.react-chatbot-kit-user-chat-message,
+.react-chatbot-kit-chat-header {
+  font-size: 1.5rem !important;
+}
 
 .entry-form {
   background: #252020;
