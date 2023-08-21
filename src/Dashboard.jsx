@@ -10,6 +10,7 @@ const Dashboard = () => {
     approved: 0,
     pending: 0,
     rejected: 0,
+    total: 0,
   });
   const url = "http://localhost:8080/api/cars?soldOut=false";
   const bidStatus = "http://localhost:8080/api/bids/buyer/1";
@@ -27,6 +28,7 @@ const Dashboard = () => {
       approved: 0,
       pending: 0,
       rejected: 0,
+      total: bids.length,
     };
     bids.map((bid) => {
       console.log(bid.status.toLowerCase());
@@ -223,7 +225,7 @@ const Dashboard = () => {
           {/******* Bid Status Tab *********/}
           <div class="tab-pane" id="3">
             <h2 className="total-bids">
-              Total Bids : <span>4</span>
+              Total Bids : <span>{bidCount.total}</span>
             </h2>
             <div className="status-bids">
               <div className="row ">
