@@ -25,7 +25,7 @@ const Dashboard = () => {
   const [vehicle, setVehicle] = useState({});
   const [statusBid, setStatusBid] = useState([]);
   const [chatId, setChatId] = useState([]);
-  const [config,setConfig] = useState({})
+  const [config, setConfig] = useState({});
   const [createChat, setCreateChat] = useState(false);
   const openChatWithData = (obj) => {
     let randomId = (Math.random() * 1000).toFixed(0);
@@ -39,7 +39,9 @@ const Dashboard = () => {
       botName: "openlaneBot",
       initialMessages: [
         createChatBotMessage(
-          `Hello, you are looking at ${obj.make + " " + obj.model}. How can I help?`
+          `Hello, you are looking at ${
+            obj.make + " " + obj.model
+          }. How can I help?`
         ),
       ],
       customStyles: {
