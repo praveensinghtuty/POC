@@ -39,9 +39,9 @@ const Dashboard = () => {
       botName: "openlaneBot",
       initialMessages: [
         createChatBotMessage(
-          `Hello, you are looking at ${
-            obj.make + " " + obj.model
-          }. How can I help?`
+          `Hello, looks like your final bid on the ${
+            obj.make + " " + obj.model + " "
+          }was close to the seller's range. Would you be interested in revising up your bid to see if we can have a deal?`
         ),
       ],
       customStyles: {
@@ -231,7 +231,7 @@ const Dashboard = () => {
                     </div>
                     <div className="bid-section">
                       <div className="left-col">
-                        <h3>Starting Bid Amount</h3>
+                        <h3>Last Bid Amount</h3>
                         <h2>
                           <strong>{"$" + obj.minBidAmount}</strong>
                         </h2>
