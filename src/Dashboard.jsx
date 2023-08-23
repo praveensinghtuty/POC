@@ -4,7 +4,7 @@ import "react-chatbot-kit/build/main.css";
 import "./App.css";
 import ActionProvider from "./ActionProvider";
 import MessageParser from "./MessageParser";
-import config from "./config";
+import { createChatBotMessage } from "react-chatbot-kit";
 const Dashboard = () => {
   const [sellerInput, setSellerInput] = useState({
     make: "",
@@ -25,6 +25,7 @@ const Dashboard = () => {
   const [vehicle, setVehicle] = useState({});
   const [statusBid, setStatusBid] = useState([]);
   const [chatId, setChatId] = useState([]);
+  const [config,setConfig] = useState({})
   const [createChat, setCreateChat] = useState(false);
   const openChatWithData = (obj) => {
     let randomId = (Math.random() * 1000).toFixed(0);
@@ -34,8 +35,26 @@ const Dashboard = () => {
     window.chatId = randomId;
     setCreateChat(true);
     setChatId([...chatId, randomId]);
+    const config = {
+      botName: "openlaneBot",
+      initialMessages: [
+        createChatBotMessage(
+          `Hello, you are looking at ${obj.make + " " + obj.model}. How can I help?`
+        ),
+      ],
+      customStyles: {
+        botMessageBox: {
+          backgroundColor: "#0A1A5E",
+        },
+        chatButton: {
+          backgroundColor: "#0A1A5E",
+        },
+      },
+    };
     window.carId = obj.id;
-    window.carName = obj.make + " " + obj.model;
+    setConfig(config);
+    //window.carName = obj.make + " " + obj.model;
+
     // document.querySelector(".App-header").classList.remove("closed");
     // document.querySelector(".App-header").classList.add("open");
   };
@@ -76,8 +95,6 @@ const Dashboard = () => {
   };
   function closeChat(event) {
     setCreateChat(false);
-    // document.querySelector(".App-header").classList.remove("open");
-    // document.querySelector(".App-header").classList.add("closed");
   }
   const fetchInfo = () => {
     return fetch(url)
