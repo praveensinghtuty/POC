@@ -181,11 +181,17 @@ const Dashboard = () => {
                 return (
                   <div className="single-card">
                     <div className="car-section">
+                      {obj.terms && (
+                        <div className="right-corner" title={obj.terms}>
+                          <i class="gg-info"></i>
+                        </div>
+                      )}
                       <div className="image-col">
                         <img src={getImage()} alt="Img" />
                       </div>
                       <div className="car-details-col">
                         <h2 className="link">{obj.make + " " + obj.model}</h2>
+
                         <h3>{obj.year}</h3>
                         <ul>
                           <li>{getKm()}</li>
