@@ -1,5 +1,22 @@
 .App {
   text-align: center;
+  display: flex;
+  flex-direction: row;
+}
+.right-pane {
+  max-height: 100%;
+  position: fixed;
+  overflow: scroll;
+  left: 250px;
+}
+.left-pane{
+  max-height: 100vh;
+    position: fixed;
+    top: 0;
+}
+
+.car-container {
+  min-width: calc(100vw - 260px);
 }
 .right-corner {
   position: relative;
@@ -49,7 +66,7 @@
   color: #61dafb;
 }
 .dashboard-home {
-  padding: 50px 0px;
+  padding: 38px 0px;
 }
 .open {
   display: block;

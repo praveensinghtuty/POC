@@ -890,7 +890,7 @@ footer .social-icon {
      RESPONSIVE STYLES              
   -----------------------------------------*/
 
-@media screen and (max-width: 1170px) {
+/* @media screen and (max-width: 1170px) {
   .custom-navbar .navbar-nav.navbar-nav-first {
     margin-left: inherit;
   }
@@ -923,7 +923,7 @@ footer .social-icon {
     padding-right: 10px;
     padding-left: 10px;
   }
-}
+} */
 
 @media only screen and (max-width: 767px) {
   h1 {

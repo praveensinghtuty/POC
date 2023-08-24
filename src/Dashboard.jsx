@@ -76,7 +76,7 @@ const Dashboard = () => {
     return "/images/product-" + Math.ceil(Math.random() * 6) + ".jpg";
   };
   const getKm = () => {
-    return Math.ceil(Math.random() * 50000 + 10000) + "Kms";
+    return Math.ceil(Math.random() * 50000 + 10000) + "miles";
   };
   const generateBidCount = (bids) => {
     const tempBidCount = {
@@ -159,7 +159,7 @@ const Dashboard = () => {
 
   return (
     <div className="dashboard-home">
-      <div class="container">
+      <div class="car-container">
         <ul class="nav nav-tabs">
           <li class="active">
             <a href="#1" data-toggle="tab">
