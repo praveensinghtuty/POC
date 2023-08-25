@@ -72,7 +72,12 @@ const Dashboard = () => {
   //     });
   //   }
   // };
-  const getImage = () => {
+  const getImage = (data) => {
+    if(data)
+    {
+      return "/images/" + data.make+data.model+ ".jpg";
+    }
+    
     return "/images/product-" + Math.ceil(Math.random() * 6) + ".jpg";
   };
   const getKm = () => {
@@ -206,7 +211,7 @@ const Dashboard = () => {
                         </div>
                       )}
                       <div className="image-col">
-                        <img src={getImage()} alt="Img" />
+                        <img src={getImage(obj)} alt="Img" />
                       </div>
                       <div className="car-details-col">
                         <h2 className="link">{obj.make + " " + obj.model}</h2>
