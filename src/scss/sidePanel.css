@@ -1,0 +1,43 @@
+.side-menu {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    width: 250px;    
+}
+.menu-list {
+    display: flex;
+    flex-direction: column;
+    gap:14px;
+    padding-top: 30px;
+    padding-left: 10px;
+box-shadow: rgba(50, 50, 93, 0.25) 0px 10px 20px -10px inset, rgba(0, 0, 0, 0.3) 0px 2px 2px -2px inset;
+}
+.logo {
+    max-width: 200px;
+    margin-left: 20px;
+    padding: 20px 15px;
+    margin-top: 18px;  
+}
+.header {
+    font-size: 16px;
+    font-weight: bold;
+    color: #6e6b6b;
+    margin-bottom: 14px;
+}
+
+.sub-menu {
+    display: flex;
+    margin-left: 10px;
+    flex-direction: column;
+    gap: 18px;
+}
+.menu-item:hover {
+    color: #0d42d1;
+    font-weight: bold;
+}
+
+.menu-item {
+    display: flex;
+    gap: 18px;
+    color: #6e6b6b;
+}
