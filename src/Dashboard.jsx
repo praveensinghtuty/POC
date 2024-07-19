@@ -19,8 +19,8 @@ const Dashboard = () => {
     rejected: 0,
     total: 0,
   });
-  const url = "http://localhost:8080/api/cars?soldOut=false";
-  const bidStatus = "http://localhost:8080/api/bids/buyer/1";
+  const url = "https://negotiationbot.azurewebsites.net/api/cars?soldOut=false";
+  const bidStatus = "https://negotiationbot.azurewebsites.net/api/bids/buyer/1";
   const [data, setData] = useState([]);
   const [vehicle, setVehicle] = useState({});
   const [statusBid, setStatusBid] = useState([]);
@@ -131,7 +131,7 @@ const Dashboard = () => {
     e.preventDefault();
     if (sellerInput.model) {
       console.log("in");
-      fetch("http://localhost:8080/api/cars", {
+      fetch("https://negotiationbot.azurewebsites.net/api/cars", {
         method: "POST",
         body: JSON.stringify(sellerInput),
         headers: {
