@@ -16,7 +16,7 @@ export const SideMenu = [
             },
             {
                 title: "Purchases",
-                icon: "fa fa-solid fa-cart-shopping",
+                icon: "fa fa-solid fa-money",
             }
             
         ]
@@ -34,7 +34,7 @@ export const SideMenu = [
             },
             {
                 title: "Upcoming",
-                icon: "fa fa-solid fa-clock-rotate-left",
+                icon: "fa fa-solid fa-calendar",
             },
             {
                 title: "Active",
@@ -58,7 +58,7 @@ export const SideMenu = [
             },
             {
                 title: "Landed",
-                icon: "fa fa-solid fa-location-pin",
+                icon: "fa fa-solid fa-home",
             },
             {
                 title: "Picked up",
@@ -66,7 +66,7 @@ export const SideMenu = [
             },
             {
                 title: "Send to Simulcast",
-                icon: "fa fa-regular fa-video",
+                icon: "fa fa-regular fa-ticket",
             },
         
 
