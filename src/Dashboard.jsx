@@ -192,7 +192,7 @@ const Dashboard = () => {
                 <Chatbot
                   config={config}
                   actionProvider={ActionProvider}
-                  headerText="Chat with Openlane Bot"
+                  headerText="Chat with LTIMindtree Bot"
                   messageParser={MessageParser}
                 />
               </div>
