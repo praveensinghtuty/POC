@@ -9,7 +9,7 @@ class ActionProvider {
       "Sorry not able to connect right now"
     );
 
-    fetch("https://negotiationbot.azurewebsites.net/api/chat", {
+    fetch("http://localhost:8080/api/chat", {
       method: "POST",
       body: JSON.stringify({
         prompt: message,
